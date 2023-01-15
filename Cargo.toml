@@ -1,0 +1,20 @@
+[package]
+name = "jsonrpc-types"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde_json = "1.0.91"
+serde = { version = "1.0.152", features = ["derive"] }
+
+[dev-dependencies]
+insta = { version = "1.26.0", features = ["json"] }
+similar-asserts = "1.4.2"
+
+[profile.dev.package.insta]
+opt-level = 3
+
+[profile.dev.package.similar]
+opt-level = 3
