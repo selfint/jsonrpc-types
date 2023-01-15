@@ -1,7 +1,8 @@
 //! A minimal implementation of the [JSON-RPC 2.0
 //! Specification](https://www.jsonrpc.org/specification) types.
 //!
-//! **All documentation is copied from the specification site.**
+//! **All documentation is copied from the specification site** (with small
+//! modifications).
 //!
 //! # 1 Overview
 //! JSON-RPC is a stateless, light-weight remote procedure call (RPC) protocol.
