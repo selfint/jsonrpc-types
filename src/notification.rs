@@ -47,7 +47,7 @@ impl<P: Serialize> Serialize for Notification<P> {
 mod tests {
     use super::*;
 
-    use crate::tests::{snapshot, Params};
+    use crate::test_utils::{snapshot, Params};
 
     #[test]
     fn test_notification_serde() {

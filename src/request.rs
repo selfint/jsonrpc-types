@@ -61,7 +61,7 @@ impl<P: Serialize> Serialize for Request<P> {
 mod tests {
     use super::*;
 
-    use crate::tests::{snapshot, Params};
+    use crate::test_utils::{snapshot, Params};
 
     #[test]
     fn test_request_serde() {

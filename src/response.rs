@@ -124,7 +124,7 @@ impl<R: Serialize, E: Serialize> Serialize for Response<R, E> {
 mod tests {
     use super::*;
 
-    use crate::tests::{snapshot, Params};
+    use crate::test_utils::{snapshot, Params};
 
     #[test]
     fn test_response_serde() {

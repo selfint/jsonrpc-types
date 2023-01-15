@@ -59,5 +59,29 @@ pub use response::{Response, ResponseContent, ResponseError};
 
 pub(crate) const JSONRPC_V2: &str = "2.0";
 
+/// Helpers for serialization/deserialization tests
 #[cfg(test)]
-pub(crate) mod tests;
+pub(crate) mod test_utils {
+    use serde::{Deserialize, Serialize};
+
+    #[derive(Serialize, Deserialize, PartialEq, Eq, Debug)]
+    pub(crate) struct Params {
+        pub p0: u32,
+        pub p1: u32,
+    }
+
+    #[cfg(test)]
+    macro_rules! snapshot {
+        ($e:expr) => {
+            insta::assert_json_snapshot!($e);
+
+            let serialized = serde_json::to_value($e);
+            let deserialized = serde_json::from_value(serialized.unwrap()).unwrap();
+
+            similar_asserts::assert_eq!($e, deserialized);
+        };
+    }
+
+    #[cfg(test)]
+    pub(crate) use snapshot;
+}
